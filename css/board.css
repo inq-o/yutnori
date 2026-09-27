@@ -1,0 +1,21 @@
+/* 윷판(SVG)과 말 */
+.tok{position:absolute;width:var(--ts);height:var(--ts);margin:calc(var(--ts)/-2) 0 0 calc(var(--ts)/-2);border-radius:50%;
+  background:var(--c);color:#fff;font-family:var(--display);font-size:calc(var(--ts)*.46);display:grid;place-items:center;
+  box-shadow:0 2px 0 rgba(0,0,0,.28),0 4px 10px rgba(0,0,0,.25),inset 0 0 0 3px rgba(255,255,255,.85);
+  cursor:grab;touch-action:none;pointer-events:auto;transition:left .18s,top .18s}
+.tray .tok{position:relative;margin:0;--ts:2.5rem;transition:none}
+.tok b{position:absolute;right:-6px;top:-6px;background:var(--ink);color:var(--panel);font-family:var(--body);font-weight:700;font-size:.75rem;
+  border-radius:999px;padding:1px 6px;box-shadow:0 0 0 2px var(--panel)}
+.tok.hidden{visibility:hidden}
+.ghost{position:fixed;pointer-events:none;z-index:50;transform:scale(1.12);cursor:grabbing;transition:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.35),inset 0 0 0 3px rgba(255,255,255,.85)}
+
+svg .ln{stroke:var(--line);stroke-width:3;fill:none;stroke-linecap:round}
+svg .nd{fill:var(--node);stroke:var(--node-line);stroke-width:3;transition:stroke-width .1s}
+svg .nd.big{fill:var(--big);stroke:var(--big-line)}
+svg .ring{fill:none;stroke:var(--big-line);stroke-width:2}
+svg .dot{fill:var(--node-line)}
+svg .nd.hot{stroke:var(--accent);stroke-width:7}
+svg .arw{fill:var(--arrow)}
+svg .lbl{fill:var(--ink);font-family:var(--display);font-size:20px;text-anchor:middle}
+svg .bd1{fill:var(--board)} svg .bd2{fill:var(--board2)}

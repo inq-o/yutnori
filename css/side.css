@@ -1,0 +1,35 @@
+/* 오른쪽 패널: 골인, 팀 카드, 지금 차례
+   순서 주의: .team.now가 .team.over/.team.win보다 뒤에 있어야 차례 테두리가 우선함 */
+.goal{border:2px dashed var(--ink);border-radius:12px;padding:12px;text-align:center;background:var(--panel);transition:transform .15s,background .15s}
+.goal b{font-family:var(--display);font-weight:400;font-size:1.375rem;display:block}
+.goal span{font-size:.8125rem;color:var(--muted)}
+.goal.over{background:var(--accent);color:#fff;transform:scale(1.03)}
+.goal.over span{color:#fff}
+.team{background:var(--panel);border-radius:12px;padding:10px 12px;box-shadow:inset 0 0 0 1.5px var(--panel-line);display:grid;gap:8px;
+  transition:box-shadow .15s}
+.team.over{box-shadow:inset 0 0 0 3px var(--ink)}
+.team.win{box-shadow:inset 0 0 0 3px var(--accent)}
+.team-head{display:flex;align-items:center;gap:8px}
+.chip{width:.875rem;height:.875rem;border-radius:4px;flex:none}
+.team-name{font-family:var(--display);font-size:1.25rem;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.team-stat{font-size:.875rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.tray{display:flex;gap:8px;align-items:center;min-height:2.75rem;flex-wrap:wrap}
+.tray .empty{font-size:.8125rem;color:var(--muted)}
+.stars{display:flex;gap:4px;margin-left:auto}
+.star{border:0;background:none;padding:0;width:1.5rem;height:1.5rem;cursor:pointer;color:var(--accent);font-size:1.25rem;line-height:1}
+#teams{display:grid;gap:10px}
+
+.turn{--tc:#333;background:var(--tc);color:#fff;border-radius:14px;padding:10px 10px 10px 14px;display:grid;grid-template-columns:1fr auto auto;
+  align-items:center;gap:6px;box-shadow:0 3px 0 rgba(0,0,0,.2);transition:background-color .25s}
+.turn small{grid-column:1/-1;font-size:.875rem;opacity:.9}
+.turn b{font-family:var(--display);font-weight:400;font-size:2rem;line-height:1.05;text-shadow:0 1px 2px rgba(0,0,0,.35);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.turn .btn{background:rgba(255,255,255,.25);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6);padding:.5rem .75rem;font-size:.875rem}
+.turn .btn.next{background:#fff;color:color-mix(in srgb,var(--tc) 50%,#000);box-shadow:none;font-family:var(--display);font-size:1.125rem;padding:.5rem 1rem}
+.turn.flip b{animation:turnIn .35s ease-out}
+@keyframes turnIn{from{transform:translateY(10px);opacity:0}}
+.team{--tc:transparent}
+.team.now{box-shadow:inset 0 0 0 3px var(--tc)}
+.team.now .team-name::after{content:"차례";font-family:var(--body);font-size:.75rem;font-weight:700;background:var(--tc);color:#fff;
+  border-radius:999px;padding:2px 7px;margin-left:6px;vertical-align:3px}
+.team-head{cursor:pointer}

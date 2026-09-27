@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>윷놀이 말판</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/board.css">
+<link rel="stylesheet" href="css/side.css">
+<link rel="stylesheet" href="css/overlay.css">
+<link rel="stylesheet" href="css/effects.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>윷놀이 말판<small>말을 끌어서 옮겨요</small></h1>
+    <div class="tools">
+      <button class="btn" id="sound" type="button" aria-pressed="true">소리 켬</button>
+      <button class="btn" id="undo" type="button">되돌리기</button>
+      <button class="btn" id="settings" type="button">설정</button>
+      <button class="btn" id="reset" type="button">새 게임</button>
+      <button class="btn primary" id="full" type="button">전체화면</button>
+    </div>
+  </header>
+  <main>
+    <div class="board-area"><div class="board" id="board"><svg id="svg" viewBox="0 0 600 600" aria-label="윷판"></svg><div class="tokens" id="tokens"></div><div class="fx" id="fx"></div></div></div>
+    <aside class="side">
+      <div class="turn" id="turn"><small>지금 차례</small><b id="turnName"></b>
+        <button class="btn" id="prevTurn" type="button" aria-label="이전 팀">이전</button>
+        <button class="btn next" id="nextTurn" type="button">다음 팀</button></div>
+      <div class="goal" id="goal"><b>골인</b><span>판을 다 돈 말을 여기에 놓아요</span></div>
+      <div id="teams"></div>
+    </aside>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- 순서 중요: 앞 파일의 변수·함수를 뒤 파일이 씀 -->
+<script src="js/util.js"></script>
+<script src="js/skins.js"></script>
+<script src="js/board.js"></script>
+<script src="js/state.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/render.js"></script>
+<script src="js/drag.js"></script>
+<script src="js/controls.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

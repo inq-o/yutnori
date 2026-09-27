@@ -1,0 +1,23 @@
+/* 색 변수(기본값은 한지 스킨, 실제 값은 js/skins.js가 덮어씀), 글자 크기, 버튼 */
+:root{
+  --bg:#EAD7A8; --bg-img:none; --panel:#FFF8E6; --panel-line:#D8C08A; --ink:#3B2A1A; --muted:#7A6445;
+  --accent:#C8102E; --board:#F3E6C4; --board2:#F3E6C4; --line:#3B2A1A; --node:#FFFDF6; --node-line:#3B2A1A;
+  --big:#FFFDF6; --big-line:#3B2A1A; --arrow:#C8102E; --btn:#3B2A1A; --btn-ink:#FFF8E6;
+  --display:"Black Han Sans","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --body:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  color-scheme:light;
+}
+html{font-size:16px}
+html,body{height:100%}
+body{margin:0;background:var(--bg);background-image:var(--bg-img);color:var(--ink);font-family:var(--body);font-size:1rem;word-break:keep-all;
+  -webkit-user-select:none;user-select:none;overflow:hidden;transition:background-color .3s}
+.btn{font:inherit;font-size:.875rem;border:0;border-radius:8px;padding:8px 12px;cursor:pointer;background:var(--panel);color:var(--ink);
+  box-shadow:inset 0 0 0 1.5px var(--panel-line)}
+.btn.primary{background:var(--btn);color:var(--btn-ink);box-shadow:none}
+.btn.warn{background:var(--accent);color:#fff;box-shadow:none}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible,.skin:focus-visible,.star:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn[aria-pressed="false"]{opacity:.6}
+
+/* 가로 화면: 말판은 높이에 맞춰지고 옆이 남으니, 높이에 비례해 패널과 글자를 키움 (720px→16px, 1080px→24px) */
+@media (min-width:761px){html{font-size:clamp(16px,2.2vh,24px)}}
